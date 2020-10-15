@@ -48,7 +48,7 @@ public class UserControllerProviderTest {
     public void toCreateUserState() {
         User user = User.builder()
                 .id(11L)
-                .firstName("Bill").lastName("Clinton").emailId("george.washington@email.com").gender("Male").title("Mr")
+                .firstName("Bill").lastName("Clinton").emailId("bill.clinton@email.com").gender("Male").title("Mr")
                 .address(Address.builder().street("Pennsylvania Avenue").city("NW").state("Washington D.C").postCode("2000").build())
                 .build();
 
