@@ -85,7 +85,8 @@ Integration tests will execute while building the application.
 API Reference with examples, or a link to a wiki or other documentation source.
 In local, the endpoints can be access via below links.
 
-* Get all user: GET (http://localhost:8080/api/userdetails) 
-* Get simple user: GET (http://localhost:8080/api/userdetails/10)
+* Get all users: GET (http://localhost:8080/api/userdetails) 
+* Get single user: GET (http://localhost:8080/api/userdetails/10)
 * Create new user: POST (http://localhost:8080/api/userdetails/restricted)
-* Delete an user: DELETE (http://localhost:8080/api/userdetails/restricted/1)
+* Update existing user: PUT (http://localhost:8080/api/userdetails/restricted/1)
+* Delete an existing user: DELETE (http://localhost:8080/api/userdetails/restricted/1)
