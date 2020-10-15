@@ -60,18 +60,11 @@ public class UserService {
     }
 
     @Transactional
-    public Optional<User> deleteUser(Long userId) {
-
+    public void deleteUser(Long userId) {
         CircuitBreaker circuitBreaker = circuitBreakerFactory.create("circuitbreaker");
-        return circuitBreaker.run(() -> {
-            Optional<User> userOptional = userRepository.findById(userId);
-            if (userOptional.isPresent()) {
-                User user = userOptional.get();
-                userRepository.delete(user);
-                return Optional.of(user);
-            } else {
-                return Optional.empty();
-            }
+        circuitBreaker.run(() -> {
+            userRepository.deleteById(userId);
+            return null;
         });
     }
 }

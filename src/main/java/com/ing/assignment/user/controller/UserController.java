@@ -65,6 +65,7 @@ public class UserController {
         Optional<User> userOptional = userService.getUserById(userId);
         if(userOptional.isPresent()) {
             User user = userOptional.get();
+            userService.deleteUser(userId);
             return ResponseEntity.ok(user);
         } else {
             return new ResponseEntity(String.format("User not found for ID:%s", userId.longValue()), HttpStatus.NOT_FOUND);

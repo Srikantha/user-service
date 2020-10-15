@@ -1,0 +1,78 @@
+{
+  "consumer": {
+    "name": "ui"
+  },
+  "provider": {
+    "name": "userservice"
+  },
+  "interactions": [
+    {
+      "description": "A request to POST a user",
+      "providerState": "provider accepts a new user",
+      "request": {
+        "method": "POST",
+        "path": "/api/userdetails/restricted",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "firstName": "Arthur",
+          "lastName": "Dent"
+        }
+      },
+      "response": {
+        "status": 201,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 11
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a request to PUT a person",
+      "providerState": "person 11 exists",
+      "request": {
+        "method": "PUT",
+        "path": "/api/userdetails/restricted/11",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "firstName": "Zaphod",
+          "lastName": "Beeblebrox"
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "firstName": "Zaphod",
+          "lastName": "Beeblebrox"
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}
